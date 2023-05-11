@@ -1,5 +1,6 @@
-import { Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Test from './pages/test/Test';
 import upcScanner from './pages/upcScanner/UpcScan';
 
 function App() {
@@ -8,9 +9,12 @@ function App() {
       <div className="h-16 shadow-2xl bg-primary flex items-center justify-center font-extrabold">
         ACCESS PHARMACIES INVENTORY TOOL
       </div>
+
       <Routes>
         <Route path="upcScanner" Component={upcScanner}></Route>
+        <Route path="test" Component={Test} />
       </Routes>
+      <div></div>
     </div>
   );
 }

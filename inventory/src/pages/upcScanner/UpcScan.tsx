@@ -9,7 +9,7 @@ interface upcArray {
   location: 'whitewell';
 }
 
-export default function upcScanner() {
+export function UpcScanner() {
   const { register, handleSubmit, setValue, getValues } = useForm<upcArray>();
   const [upc, setUpc] = useState<upcArray[]>([]);
   const [upcc, setUpcc] = useState<number>();
