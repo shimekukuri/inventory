@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function Layout() {
   const [dwrState, setDwrState] = useState<boolean>(false);
@@ -51,7 +51,9 @@ export default function Layout() {
             </div>
           </li>
           <li className="mt-2 mb-2">
-            <a>Sidebar Item 1</a>
+            <Link to={'/upcScanner'} onClick={() => drawerToggle()}>
+              Upc Scanner
+            </Link>
           </li>
           <li className="mt-2 mb-2">
             <a>Sidebar Item 2</a>
