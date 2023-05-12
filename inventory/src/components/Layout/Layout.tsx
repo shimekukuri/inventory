@@ -1,16 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 export default function Layout() {
+  const [dwrState, setDwrState] = useState<boolean>(false);
+  const drawerToggle = () => {
+    setDwrState((prev) => !prev);
+  };
+
   return (
-    <div className="h-screen flex flex-col justify-between bg-secondary">
-      <div className="h-16 shadow-2xl bg-primary flex items-center justify-center font-extrabold">
-        ACCESS PHARMACIES INVENTORY TOOL
+    <div className="drawer drawer-end">
+      <input
+        id="my-drawer-4"
+        type="checkbox"
+        className="drawer-toggle"
+        checked={dwrState}
+      />
+      <div className="drawer-content">
+        <div className="h-screen flex flex-col justify-between bg-secondary">
+          <div className="navbar bg-primary flex justify-between">
+            <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            <div onClick={drawerToggle}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-5 h-5 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <Outlet />
+          <footer className="footer footer-title justify-center items-center bg-opacity-40 bg-secondary-content pb-0 mb-0">
+            James Tyler Hutchinson 2023
+          </footer>
+        </div>
       </div>
-      <Outlet />
-      <footer className="footer footer-title justify-center items-center bg-opacity-40 bg-secondary-content pb-0 mb-0">
-        James Tyler Hutchinson 2023
-      </footer>
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+        <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+          {/* <!-- Sidebar content here --> */}
+          <li className="mt-2 mb-2">
+            <div className="btn btn-primary" onClick={() => setDwrState(false)}>
+              Close
+            </div>
+          </li>
+          <li className="mt-2 mb-2">
+            <a>Sidebar Item 1</a>
+          </li>
+          <li className="mt-2 mb-2">
+            <a>Sidebar Item 2</a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
