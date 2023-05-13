@@ -4,7 +4,7 @@ import Cors from 'cors';
 const prisma = new PrismaClient();
 const app = express();
 app.use(Cors({
-    origin: 'http://localhost:5175',
+    origin: 'http://localhost:5173',
 }));
 app.use(express.json());
 app.post('/', (req, res) => {
@@ -49,8 +49,9 @@ app.post('/find', async (req, res) => {
     console.log(upc);
     await prisma.$connect();
     const data = await prisma.item.findUnique({
-        where: { upc: Number.parseInt(upc) },
+        where: { upc: upc },
     });
+    console.log(data);
     res.send(JSON.stringify(data));
     await prisma.$disconnect();
 });

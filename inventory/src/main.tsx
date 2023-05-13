@@ -8,6 +8,7 @@ import { UpcScanner } from './pages/upcScanner/UpcScan';
 import './index.css';
 import Test from './pages/test/Test';
 import Test2 from './pages/test/Test2';
+import Item, { itemLoader } from './pages/item/Item';
 
 const router = createBrowserRouter([
   {
@@ -19,9 +20,10 @@ const router = createBrowserRouter([
         element: <UpcScanner />,
       },
       {
-        path: 'test',
-        element: <Test />,
+        path: 'item/:upc',
+        element: <Item />,
         children: [{ path: 'test2/:id', element: <Test2 /> }],
+        loader: itemLoader,
       },
     ],
   },
