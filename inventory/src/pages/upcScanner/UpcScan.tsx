@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 interface upcArray {
   UPC: string;
@@ -13,6 +14,7 @@ export function UpcScanner() {
   const { register, handleSubmit, setValue, getValues } = useForm<upcArray>();
   const [upc, setUpc] = useState<upcArray[]>([]);
   const [upcc, setUpcc] = useState<number>();
+  const navigate = useNavigate();
 
   const submitUpcData = handleSubmit((data: upcArray) => {
     console.log(data);
@@ -81,7 +83,7 @@ export function UpcScanner() {
   };
 
   return (
-    <div className="overflow-y-scroll min-h-max flex-1 rounded-2xl shadow-xl p-6 m-4 glass">
+    <div className="overflow-y-scroll min-h-max flex-1 rounded-2xl shadow-xl py-6 m-4 glass">
       <div className="flex flex-col p-6 items-center justify-center">
         <form
           onSubmit={submitUpcData}
@@ -129,7 +131,10 @@ export function UpcScanner() {
         })}
       </div>
       <div className="flex justify-center items-center">
-        <button className="btn" onClick={() => checkUpc()}>
+        <button
+          className="btn"
+          onClick={() => navigate(`/item/${getValues('UPC')}`)}
+        >
           Search
         </button>
       </div>
