@@ -133,7 +133,11 @@ export function UpcScanner() {
       <div className="flex justify-center items-center">
         <button
           className="btn"
-          onClick={() => navigate(`/item/${getValues('UPC')}`)}
+          onClick={() =>
+            navigate(
+              `/location/${getValues('location')}/item/${getValues('UPC')}`
+            )
+          }
         >
           Search
         </button>

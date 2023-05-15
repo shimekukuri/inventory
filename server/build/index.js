@@ -45,11 +45,11 @@ app.post('/', (req, res) => {
     });
 });
 app.post('/find', async (req, res) => {
-    const { upc } = req.body;
+    const { upc, location } = req.body;
     console.log(upc);
     await prisma.$connect();
-    const data = await prisma.item.findUnique({
-        where: { upc: upc },
+    const data = await prisma.item.findFirst({
+        where: { upc: upc, location: location },
     });
     console.log(data);
     res.send(JSON.stringify(data));

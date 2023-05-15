@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <UpcScanner />,
       },
       {
-        path: 'item/:upc',
+        path: 'location/:location/item/:upc',
         element: <Item />,
         children: [{ path: 'test2/:id', element: <Test2 /> }],
         loader: itemLoader,

@@ -8,7 +8,7 @@ export const itemLoader = ({ params }: { params: any }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ upc: params.upc }),
+      body: JSON.stringify({ upc: params.upc, location: params.location }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -24,12 +24,30 @@ export default function Item() {
   const { item } = useLoaderData();
   console.log(item);
   return (
-    <div>
-      <div>{item.upc}</div>
-      <div>{item.quantity}</div>
-      <div>{item.onHand}</div>
-      <div>{`${item.salesTax}`}</div>
-      <div>{item.location}</div>
+    <div className="px-4">
+      <div className="card w-full bg-primary text-primary-content">
+        <div className="card-body">
+          <h2 className="card-title">UPC: {`${item.upc}`}</h2>
+          <div className="divider"></div>
+          <div>
+            <div className="flex justify-between">
+              <div>Quantity</div>
+              <div>{item.quantity}</div>
+            </div>
+            <div className="flex justify-between">
+              <div>On Hand</div>
+              <div>{item.onHand}</div>
+            </div>
+            <div className="flex justify-between">
+              <div>Sales Tax</div>
+              <div>{item.salesTax}</div>
+            </div>
+          </div>
+          <div className="card-actions justify-end">
+            <button className="btn w-28">Edit</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
