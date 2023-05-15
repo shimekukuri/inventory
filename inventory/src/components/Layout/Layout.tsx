@@ -17,9 +17,9 @@ export default function Layout() {
         readOnly
       />
       <div className="drawer-content">
-        <div className="h-screen flex flex-col justify-between bg-secondary">
+        <div className="h-screen flex flex-col justify-between bg-neutral-content">
           <div className="navbar bg-primary flex justify-between">
-            <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            <a className="btn btn-ghost normal-case text-xl">Access Pharmacy</a>
             <div onClick={drawerToggle}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
