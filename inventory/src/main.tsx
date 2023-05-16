@@ -9,6 +9,7 @@ import './index.css';
 import Test from './pages/test/Test';
 import Test2 from './pages/test/Test2';
 import Item, { itemLoader } from './pages/item/Item';
+import DrawerProvider from './context/drawerContext/DrawerContext';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <DrawerProvider>
+      <RouterProvider router={router} />
+    </DrawerProvider>
   </React.StrictMode>
 );
