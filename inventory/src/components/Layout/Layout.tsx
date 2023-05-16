@@ -24,7 +24,7 @@ export default function Layout() {
       />
       <div className="drawer-content">
         <div className="h-screen flex flex-col justify-between bg-neutral-content">
-          <div className="navbar bg-primary flex justify-between">
+          <div className="navbar bg-primary flex justify-between shadow-2xl">
             <a className="btn btn-ghost normal-case text-xl">Access Pharmacy</a>
             <div onClick={drawerToggle}>
               <svg
