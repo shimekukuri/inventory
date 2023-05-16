@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Layout from './components/Layout/Layout';
 import { UpcScanner } from './pages/upcScanner/UpcScan';
+import TransferInventory from './pages/transfer/TransferInventory';
 
 import './index.css';
 import Test from './pages/test/Test';
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         element: <Item />,
         children: [{ path: 'test2/:id', element: <Test2 /> }],
         loader: itemLoader,
+      },
+      {
+        path: 'transferInventory',
+        element: <TransferInventory />,
       },
     ],
   },

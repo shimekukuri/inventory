@@ -25,7 +25,9 @@ export default function Layout() {
       <div className="drawer-content">
         <div className="h-screen flex flex-col justify-between bg-neutral-content">
           <div className="navbar bg-primary flex justify-between shadow-2xl">
-            <a className="btn btn-ghost normal-case text-xl">Access Pharmacy</a>
+            <Link to={'/'} className="btn btn-ghost normal-case text-xl">
+              Access Pharmacy
+            </Link>
             <div onClick={drawerToggle}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +70,9 @@ export default function Layout() {
             </Link>
           </li>
           <li className="mt-2 mb-2">
-            <a>Sidebar Item 2</a>
+            <Link to={'transferInventory'} onClick={() => drawerToggle()}>
+              Transfer Inventory
+            </Link>
           </li>
         </ul>
       </div>
