@@ -63,6 +63,7 @@ export function UpcScanner() {
 
   return (
     <div className="flex flex-col flex-1 rounded-2xl shadow-xl py-6 m-4 bg-base-300 justify-center items-center ">
+      <h1 className="text-5xl">UPC Scanner</h1>
       <div className="flex flex-col p-6 items-center justify-center w-full">
         {openScanner ? (
           <Html5QrcodePlugin qrCodeSuccessCallback={setScannerValue} />
@@ -75,7 +76,7 @@ export function UpcScanner() {
         >
           <div className="flex w-full gap-4 justify-center items-center">
             <input
-              className="input input-primary w-full text-center"
+              className="input input-primary w-full text-center shadow-xl"
               placeholder="upc"
               {...register('UPC', { required: true })}
             />
@@ -89,7 +90,7 @@ export function UpcScanner() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-6 h-6 shadow-2xl"
               >
                 <path
                   strokeLinecap="round"
@@ -105,19 +106,19 @@ export function UpcScanner() {
             </button>
           </div>
           <input
-            className="input input-primary w-full  text-center"
+            className="input input-primary w-full shadow-2xl text-center"
             placeholder="quantity"
             {...register('quantity', { required: true })}
           />
           <input
-            className="input input-primary w-full text-center"
+            className="input input-primary w-full text-center shadow-2xl"
             placeholder="On Hand"
             {...register('onHand', { required: true })}
           />
           <label htmlFor="sales-tax">Sales Tax?</label>
           <input
             type="checkbox"
-            className="checkbox"
+            className="checkbox shadow-2xl"
             id="sales-tax"
             {...register('salesTax')}
           />
@@ -127,7 +128,7 @@ export function UpcScanner() {
           >
             <option value="whitwell">whitwell</option>
           </select>
-          <input type="submit" className="btn btn-primary" />
+          <input type="submit" className="btn btn-primary shadow-2xl" />
         </form>
         {upc.map(({ UPC, quantity }) => {
           return (
@@ -140,7 +141,7 @@ export function UpcScanner() {
       </div>
       <div className="flex justify-center items-center">
         <button
-          className="btn"
+          className="btn shadow-2xl"
           onClick={() =>
             navigate(
               `/location/${getValues('location')}/item/${getValues('UPC')}`

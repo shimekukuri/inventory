@@ -58,7 +58,9 @@ export default function Layout() {
             </div>
           </li>
           <li className="mt-2 mb-2">
-            <Link to={'/'}>Home</Link>
+            <Link to={'/'} onClick={() => drawerToggle()}>
+              Home
+            </Link>
           </li>
           <li className="mt-2 mb-2">
             <Link to={'/upcScanner'} onClick={() => drawerToggle()}>
