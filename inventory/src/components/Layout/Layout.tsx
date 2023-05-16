@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import Home from '../home/Home';
 
 export default function Layout() {
   const [dwrState, setDwrState] = useState<boolean>(false);
@@ -41,7 +42,7 @@ export default function Layout() {
               </svg>
             </div>
           </div>
-          {location.pathname !== '/' ? <Outlet /> : <div>test</div>}
+          {location.pathname !== '/' ? <Outlet /> : <Home />}
           <footer className="footer footer-title justify-center items-center bg-opacity-40 bg-secondary-content pb-0 mb-0">
             James Tyler Hutchinson 2023
           </footer>
@@ -55,6 +56,9 @@ export default function Layout() {
             <div className="btn btn-primary" onClick={() => setDwrState(false)}>
               Close
             </div>
+          </li>
+          <li className="mt-2 mb-2">
+            <Link to={'/'}>Home</Link>
           </li>
           <li className="mt-2 mb-2">
             <Link to={'/upcScanner'} onClick={() => drawerToggle()}>
