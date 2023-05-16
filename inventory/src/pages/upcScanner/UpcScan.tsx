@@ -62,8 +62,8 @@ export function UpcScanner() {
   };
 
   return (
-    <div className="overflow-y-scroll min-h-max flex-1 rounded-2xl shadow-xl py-6 m-4 bg-base-300">
-      <div className="flex flex-col p-6 items-center justify-center">
+    <div className="flex flex-col flex-1 rounded-2xl shadow-xl py-6 m-4 bg-base-300 justify-center items-center ">
+      <div className="flex flex-col p-6 items-center justify-center w-full">
         {openScanner ? (
           <Html5QrcodePlugin qrCodeSuccessCallback={setScannerValue} />
         ) : (

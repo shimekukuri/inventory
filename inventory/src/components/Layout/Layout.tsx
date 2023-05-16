@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export default function Layout() {
   const [dwrState, setDwrState] = useState<boolean>(false);
+  const location = useLocation();
   const drawerToggle = () => {
     setDwrState((prev) => !prev);
   };
+
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
 
   return (
     <div className="drawer drawer-end">
@@ -36,7 +41,7 @@ export default function Layout() {
               </svg>
             </div>
           </div>
-          <Outlet />
+          {location.pathname !== '/' ? <Outlet /> : <div>test</div>}
           <footer className="footer footer-title justify-center items-center bg-opacity-40 bg-secondary-content pb-0 mb-0">
             James Tyler Hutchinson 2023
           </footer>

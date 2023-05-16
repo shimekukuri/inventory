@@ -3,9 +3,7 @@ import express from 'express';
 import Cors from 'cors';
 const prisma = new PrismaClient();
 const app = express();
-app.use(Cors({
-    origin: 'http://localhost:5173',
-}));
+app.use(Cors());
 app.use(express.json());
 app.post('/', (req, res) => {
     console.log(req.body);
