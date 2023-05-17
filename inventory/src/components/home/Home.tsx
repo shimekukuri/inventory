@@ -6,7 +6,7 @@ export default function Home() {
   const { drawerState, setDrawerState } = useContext(drawerContext);
 
   return (
-    <div className="flex-1 flex">
+    <div className="flex-1 flex pt-4 pb-4">
       <div className="flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
         <div className="flex justify-center items-center animate-opacity-to-one-200 opacity-0">
           <Link
@@ -39,7 +39,11 @@ export default function Home() {
           </Link>
         </div>
         <div className="flex justify-center items-center animate-opacity-to-one-400 opacity-0">
-          <Link to={'transferInventory'}>
+          <Link
+            to={'transferInventory'}
+            onClick={() => setDrawerState!(false)}
+            className="flex-1"
+          >
             <div
               className="card glass bg-accent-focus hover:bg-secondary shadow-2xl"
               style={{ width: '100%', height: '0', paddingBottom: '100%' }}
