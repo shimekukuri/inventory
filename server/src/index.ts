@@ -61,6 +61,21 @@ app.post('/find', async (req: express.Request, res: express.Response) => {
   await prisma.$disconnect();
 });
 
+app.post('/find2', (req: express.Request, res: express.Response) => {
+  const { upc, location } = req.body;
+  prisma
+    .$connect()
+    .then((res) => {
+      console.log(res);
+      return prisma.item.findFirst({
+        where: { upc: upc, location: location },
+      });
+    })
+    .then((data) => {
+      console.log(data);
+    });
+});
+
 app.listen(12000, () => {
   console.log('listening on port ', 12000);
 });
