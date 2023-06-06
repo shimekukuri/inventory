@@ -73,7 +73,8 @@ app.post('/find2', (req: express.Request, res: express.Response) => {
     })
     .then((data) => {
       console.log(data);
-    });
+    })
+    .finally(() => prisma.$disconnect());
 });
 
 app.listen(12000, () => {

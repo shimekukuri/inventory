@@ -65,7 +65,8 @@ app.post('/find2', (req, res) => {
     })
         .then((data) => {
         console.log(data);
-    });
+    })
+        .finally(() => prisma.$disconnect());
 });
 app.listen(12000, () => {
     console.log('listening on port ', 12000);
